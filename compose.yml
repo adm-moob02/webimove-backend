@@ -1,0 +1,21 @@
+services:
+  api:
+    build:
+      context: .
+    volumes:
+      - ./api:/api
+    env_file:
+      - .env.local
+    depends_on:
+      - db
+    ports:
+      - 8001:8001
+
+  db:
+    image: postgres:13.22-alpine3.21
+    environment:
+      - POSTGRES_USER=localuser
+      - POSTGRES_PASSWORD=localpass
+      - POSTGRES_DB=imigraweb
+    ports:
+      - 5432:5432
