@@ -11,3 +11,15 @@ repos:
     rev: v0.14.0
     hooks:
       - id: ruff-check
+
+  - repo: https://github.com/asottile/reorder-python-imports
+    rev: v3.15.0
+    hooks:
+      - id: reorder-python-imports
+
+  - repo: https://github.com/conventional-changelog/commitlint
+    rev: v20.1.0
+    hooks:
+    - id: commitlint
+      stages: [commit-msg]
+      additional_dependencies: ['@commitlint/config-conventional']
