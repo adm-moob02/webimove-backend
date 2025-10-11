@@ -3,9 +3,9 @@ services:
     build:
       context: .
     volumes:
-      - ./backend:/backend
-      - ./pyproject.toml:/backend/pyproject.toml
-      - ./uv.lock:/backend/uv.lock
+      - ./backend:/backend:ro
+      - ./pyproject.toml:/backend/pyproject.toml:ro
+      - ./uv.lock:/backend/uv.lock:ro
     env_file:
       - .env.local
     depends_on:
