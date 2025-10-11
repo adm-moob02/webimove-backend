@@ -1,5 +1,7 @@
-from fastapi import FastAPI, Request, status, Depends
 from api.core.dependencies.authjwt import JWTValidation
+from fastapi import Depends
+from fastapi import FastAPI
+from fastapi import Request
 
 
 app = FastAPI()
