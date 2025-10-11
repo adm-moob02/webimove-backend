@@ -7,8 +7,8 @@ on:
         branches: [ main ]
 
 jobs:
-    lint:
-        name: Lint
+    lint_testing:
+        name: Lint & Testing
         runs-on: ubuntu-latest
         steps:
           - uses: actions/checkout@v4
@@ -18,3 +18,4 @@ jobs:
           - run: |
               uv sync --all-groups
               uv run ruff check backend
+              uv run pytest -v

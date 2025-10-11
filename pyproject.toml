@@ -8,7 +8,6 @@ dependencies = [
     "alembic>=1.16.5",
     "fastapi>=0.118.2",
     "jwt>=1.4.0",
-    "pre-commit>=4.3.0",
     "pydantic>=2.12.0",
     "pydantic-settings>=2.11.0",
     "sqlalchemy>=2.0.43",
@@ -16,6 +15,8 @@ dependencies = [
 ]
 
 [dependency-groups]
-local = [
+check = [
+    "pre-commit>=4.3.0",
+    "pytest>=8.4.2",
     "ruff>=0.14.0",
 ]
