@@ -27,9 +27,9 @@ jobs:
         - name: Login to Docker Hub
           uses: docker/login-action@v3
           with:
-            registry: registry.digitalocean.com/imigraweb
+            registry: registry.digitalocean.com
             username: danilo.paes@pm.me
-            password: ZGFuaWxvLnBhZXNAcG0ubWU6ZG9wX3YxXzI0NDY4ZTBlMTU3ZWYzNzk0ODI2NGQwNzIzYjk3MDBlMTU4OTQ4Nzk1MmM1MWFiM2NlNTVhZWVkZGM3MDE2MTQ=
+            password: dop_v1_9d3521d12e439c04cadabc163565e724c956c6060dfaa56ce78da191b932cdc5
         - run: |
             docker build -t registry.digitalocean.com/imigraweb:latest .
             docker push registry.digitalocean.com/imigraweb:latest
