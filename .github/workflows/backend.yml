@@ -8,14 +8,27 @@ on:
 
 jobs:
     lint_testing:
-        name: Lint & Testing
-        runs-on: ubuntu-latest
-        steps:
-          - uses: actions/checkout@v4
-          - uses: astral-sh/setup-uv@v6
-            with:
-              version: "latest"
-          - run: |
-              uv sync --all-groups
-              uv run ruff check backend
-              uv run pytest -v
+      name: Lint & Testing
+      runs-on: ubuntu-latest
+      steps:
+        - uses: actions/checkout@v4
+        - uses: astral-sh/setup-uv@v6
+          with:
+            version: "latest"
+        - run: |
+            uv sync --all-groups
+            uv run ruff check backend
+            uv run pytest -v
+    build:
+      name: Build
+      runs-on: ubuntu-latest
+      steps:
+        - name: Login to Docker Hub
+          uses: docker/login-action@v3
+          with:
+            registry: registry.digitalocean.com/imigraweb
+            username: danilo.paes@pm.me
+            password: ZGFuaWxvLnBhZXNAcG0ubWU6ZG9wX3YxXzI0NDY4ZTBlMTU3ZWYzNzk0ODI2NGQwNzIzYjk3MDBlMTU4OTQ4Nzk1MmM1MWFiM2NlNTVhZWVkZGM3MDE2MTQ=
+        - run: |
+            docker build -t registry.digitalocean.com/imigraweb:latest .
+            docker push registry.digitalocean.com/imigraweb:latest

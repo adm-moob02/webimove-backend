@@ -12,4 +12,10 @@ FROM base AS local
 
 RUN uv sync --all-groups && uv venv
 
-CMD ["run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001", "--reload"]
+CMD [ "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8001", "--reload" ]
+
+FROM base AS prod
+
+RUN uv sync
+
+CMD [ "run", "uvicorn", "main:app", "--host", "0.0.0.0", "--port", "8000" ]
