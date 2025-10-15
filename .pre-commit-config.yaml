@@ -20,7 +20,8 @@ repos:
   - repo: local
     hooks:
       - id: pytest
-        name: pytest
-        entry: pytest
+        name: Run Pytest
+        entry: uv run pytest --maxfail=1 --disable-warnings -v
         language: system
         types: [python]
+        pass_filenames: false
