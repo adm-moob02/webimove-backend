@@ -21,6 +21,7 @@ jobs:
             uv run pytest -v
     build:
       name: Build
+      needs: lint_testing
       runs-on: ubuntu-latest
       steps:
         - name: Login to Docker Hub
